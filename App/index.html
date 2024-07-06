@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pestañas de Servicios de Música</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="tab">
+    <button class="tablinks" onclick="openService(event, 'Spotify')"><img src="spotify.png" alt="Spotify"> Spotify</button>
+    <button class="tablinks" onclick="openService(event, 'iTunes')"><img src="itunes.png" alt="iTunes"> iTunes</button>
+    <button class="tablinks" onclick="openService(event, 'YouTubeMusic')"><img src="ytmusic.png" alt="YouTube Music"> YouTube Music</button>
+</div>
+
+<div id="Spotify" class="tabcontent">
+    <h3>Spotify</h3>
+    <p>Contenido de Spotify.</p>
+</div>
+
+<div id="iTunes" class="tabcontent">
+    <h3>iTunes</h3>
+    <p>Contenido de iTunes.</p>
+</div>
+
+<div id="YouTubeMusic" class="tabcontent">
+    <h3>YouTube Music</h3>
+    <p>Contenido de YouTube Music.</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

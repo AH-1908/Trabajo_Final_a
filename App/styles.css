@@ -1,0 +1,92 @@
+body {
+    font-family: Arial;
+    background-color: black; /* Fondo negro para todo */
+    color: white; /* Asegurarse de que el texto sea legible */
+}
+
+/* Contenedor de las pestañas para centrar */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Ajusta según necesidad */
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: black; /* Fondo negro para las pestañas */
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: white; /* Texto blanco para contraste */
+    border-radius: 10px; /* Ajusta este valor para cambiar el redondeo */
+}
+
+/* Resto del CSS permanece igual */
+
+/* Iconos dentro de los botones */
+.tab button img {
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Cambia el color de fondo del botón al pasar el mouse */
+.tab button:hover {
+  background-color: #333; /* Más oscuro para el hover */
+}
+
+/* Crea una clase activa para los botones */
+.tab button.active {
+  background-color: #555; /* Diferenciación para el activo */
+}
+
+.tabcontent {
+    display: none;
+}
+
+.tablinks.active, .tablinks:hover {
+    background-color: #555; /* Color de fondo al pasar el mouse o para el activo */
+    color: white; /* Color de texto */
+    /* Cambiar el contorno de la pestaña de Youtube Music a rojo cuando esté activa */
+    border: 2px solid red; /* Contorno rojo */
+}
+
+.tablinks img {
+    width: 24px; /* Ajusta el ancho según necesites */
+    height: 24px; /* Ajusta la altura según necesites */
+    vertical-align: middle; /* Centra las imágenes verticalmente */
+    margin-right: 8px; /* Añade un margen a la derecha de la imagen para separarla del texto */
+}
+
+/* Centrar las pestañas y asegurar tamaño uniforme */
+.tab {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en múltiples líneas si es necesario */
+    box-shadow: 0 4px 8px 0 rgba(0, 255, 0, 0.2), 0 6px 20px 0 rgba(0, 255, 0, 0.19); /* Sombra verde */
+    border-radius: 15px; /* Bordes redondeados para el contenedor .tab */
+}
+
+/* Establecer tamaño fijo para los botones */
+.tab button {
+    width: 200px; /* Ancho fijo */
+    height: 50px; /* Altura fija */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    border-radius: 10px; /* Bordes redondeados para los botones */
+}
+
+
+
+
+
+
