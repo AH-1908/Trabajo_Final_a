@@ -15,13 +15,109 @@
 </div>
 
 <div id="Spotify" class="tabcontent">
-    <h3>Spotify</h3>
-    <p>Contenido de Spotify.</p>
+    <div class="contenedor-formulario">
+        <form class="formulario">
+            <h1>Inicio de sesión</h1>
+            <div class="campo-formulario">
+                <label for="usuario">Usuario</label>
+                <input type="text" id="usuario" required>
+            </div>
+            <div class="campo-formulario">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" id="contrasena" required>
+            </div>
+            <div class="acciones-formulario">
+                <input type="submit" value="Iniciar sesión">
+            </div>
+        </form>
+        <button id="login-spotify">Iniciar sesión con Spotify</button>
+
+        <script>
+        const client_id = '489e275b8c0a4fe78c837086f353fa61'; // Reemplaza con tu Client ID de Spotify
+        const redirect_uri = 'http://localhost:8888/callback'; // Tu URL de redirección configurada en el Dashboard de Spotify
+        const scopes = 'user-read-private user-read-email'; // Los permisos que necesitas, separados por espacios
+
+        document.getElementById('login-spotify').addEventListener('click', function() {
+            const url = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${encodeURIComponent(redirect_uri)}&scope=${encodeURIComponent(scopes)}&show_dialog=true`;
+            window.location.href = url;
+        });
+        </script>
+
+        </form>
+    </div>
+    <!-- Formulario de búsqueda -->
+    <form id="itunesSearchForm">
+        <input type="text" id="searchTerm" placeholder="Buscar en iTunes...">
+        <input type="submit" value="Buscar">
+    </form>
+    
+    <!-- Contenedor para los resultados de búsqueda -->
+    <div id="searchResults"></div>
+    
+    <script>
+        document.getElementById('itunesSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitar el envío del formulario
+    
+            const searchTerm = document.getElementById('searchTerm').value;
+            // Asegúrate de que esta línea esté correctamente integrada en tu script
+            const url = `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=10`;
+    
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsContainer = document.getElementById('searchResults');
+                    resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+    
+                    data.results.forEach(item => {
+                        // Crear y añadir un nuevo elemento para cada resultado
+                        const element = document.createElement('div');
+                        element.innerHTML = `
+                            <h3>${item.artistName} - ${item.trackName}</h3>
+                            <img src="${item.artworkUrl100}" alt="${item.trackName}">
+                        `;
+                        resultsContainer.appendChild(element);
+                    });
+                })
+                .catch(error => console.error("Error al realizar la solicitud a iTunes:", error));
+        });
+    </script>
 </div>
 
 <div id="iTunes" class="tabcontent">
-    <h3>iTunes</h3>
-    <p>Contenido de iTunes.</p>
+    <form id="itunesSearchForm">
+        <input type="text" id="searchTerm" placeholder="Buscar en iTunes...">
+        <input type="submit" value="Buscar">
+    </form>
+
+    <!-- Contenedor para los resultados de búsqueda -->
+    <div id="searchResults"></div>
+
+    <script>
+        document.getElementById('itunesSearchForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitar el envío del formulario
+
+            const searchTerm = document.getElementById('searchTerm').value;
+            const url = `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=10`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsContainer = document.getElementById('searchResults');
+                    resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+
+                    data.results.forEach(item => {
+                        // Crear y añadir un nuevo elemento para cada resultado
+                        const element = document.createElement('div');
+                        element.innerHTML = `
+                            <h3>${item.artistName} - ${item.trackName}</h3>
+                            <img src="${item.artworkUrl100}" alt="${item.trackName}">
+                        `;
+                        resultsContainer.appendChild(element);
+                    });
+                })
+                .catch(error => console.error("Error al realizar la solicitud a iTunes:", error));
+        });
+    </script>
 </div>
 
 <div id="YouTubeMusic" class="tabcontent">

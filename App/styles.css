@@ -26,7 +26,7 @@ body {
     padding: 14px 16px;
     transition: 0.3s;
     font-size: 17px;
-    color: white; /* Texto blanco para contraste */
+    color: rgb(0, 255, 221); /* Texto blanco para contraste */
     border-radius: 10px; /* Ajusta este valor para cambiar el redondeo */
 }
 
@@ -57,6 +57,18 @@ body {
     color: white; /* Color de texto */
     /* Cambiar el contorno de la pestaña de Youtube Music a rojo cuando esté activa */
     border: 2px solid red; /* Contorno rojo */
+    border-radius: 15px; /* Bordes redondeados para el contorno */
+    box-shadow: 0 4px 8px 0 rgba(0, 255, 0, 0.2), 0 6px 20px 0 rgba(0, 255, 0, 0.19); /* Sombra verde */
+}
+
+.tablinks {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    margin: 10px 0; /* Margen externo */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cursor en forma de mano */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
 }
 
 .tablinks img {
@@ -64,6 +76,102 @@ body {
     height: 24px; /* Ajusta la altura según necesites */
     vertical-align: middle; /* Centra las imágenes verticalmente */
     margin-right: 8px; /* Añade un margen a la derecha de la imagen para separarla del texto */
+}
+
+.contenedor-formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formulario {
+    background: linear-gradient(135deg, #001aff, #1ED760);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px; /* Ajusta este valor según necesites */
+    /* Otros estilos del formulario */
+}
+
+.formulario h1 {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.campo-formulario {
+    margin-bottom: 20px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.campo-formulario input[type="text"],
+.campo-formulario input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.acciones-formulario input[type="submit"] {
+    width: 105%;
+    padding: 10px;
+    background: linear-gradient(135deg, #1DB954, #00ffff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.acciones-formulario input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.acciones-formulario p,
+.registro-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.acciones-formulario a,
+.registro-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.acciones-formulario a:hover,
+.registro-link a:hover {
+    text-decoration: underline;
+}
+
+.formulario div {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #1DB954; /* Color verde de Spotify */
+    color: white; /* Asegúrate de que el texto sea blanco para ambos botones */
+    border: none; /* Sin bordes */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente consistente */
+    display: inline-flex; /* Usa flex para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    width: auto; /* Ancho automático basado en el contenido */
+    transition: background-color 0.3s; /* Efecto suave al cambiar de color */
+}
+
+.btn:hover {
+    background-color: #17a673; /* Cambia el color al pasar el mouse */
 }
 
 /* Centrar las pestañas y asegurar tamaño uniforme */
@@ -83,6 +191,42 @@ body {
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     border-radius: 10px; /* Bordes redondeados para los botones */
+}
+
+/* Estilos para el formulario y sus elementos */
+#searchForm {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#searchForm input[type="text"] {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 70%;
+    font-size: 16px;
+}
+
+#searchForm button {
+    padding: 10px 20px;
+    background-color: #1DB954; /* Color verde de Spotify */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#searchForm button:hover {
+    background-color: #1ed760;
+}
+
+/* Estilos para los resultados de búsqueda */
+#searchResults {
+    margin-top: 20px;
 }
 
 

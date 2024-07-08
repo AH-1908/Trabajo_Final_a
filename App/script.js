@@ -1,3 +1,4 @@
+
 function openService(evt, serviceName) {
     // Ocultar todos los elementos con la clase "tabcontent"
     var tabcontent = document.getElementsByClassName("tabcontent");
@@ -15,3 +16,4 @@ function openService(evt, serviceName) {
     document.getElementById(serviceName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
