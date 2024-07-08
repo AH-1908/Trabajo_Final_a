@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-	<link rel="stylesheet" href="estilos.css">
+	<link rel="stylesheet" href="estilos.css"> 
 	<title>Reproductor Spotify</title>
 </head>
 <body>
@@ -17,11 +17,81 @@
     </div>
     
     <div id="iTunes" class="tabcontent">
-        123
+        <form id="searchForm">
+            <label for="artistName">Nombre del Artista:</label>
+            <input type="text" id="artistName" name="artistName">
+            <button type="submit">Buscar Letras</button>
+        </form>
+        
+        <div id="lyrics"></div>
+        
+        <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const artistName = document.getElementById('artistName').value.trim();
+            
+            if (!artistName) {
+                alert('Por favor ingresa el nombre del artista.');
+                return;
+            }
+            
+            buscarLetras(artistName);
+        });
+        
+        function buscarLetras(artistName) {
+            const token = "pm--zfdMfysUC4Vev1YNMzUW9QBDcd_Vh1rmJe7mMHlyxo1MOhhYSrpkLY9M4djQ";
+            const apiUrl = `https://api.genius.com/search?q=${encodeURIComponent(artistName)}&access_token=${token}`;
+        
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error ${response.status}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.meta.status === 200 && data.response.hits.length > 0) {
+                        const songUrl = data.response.hits[0].result.url;
+                        obtenerLetras(songUrl);
+                    } else {
+                        throw new Error("No se encontró la canción.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al buscar la canción.');
+                });
+        }
+        
+        function obtenerLetras(songUrl) {
+            fetch(`/get_lyrics?url=${encodeURIComponent(songUrl)}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error ${response.status}: ${response.statusText}`);
+                    }
+                    return response.text();
+                })
+                .then(lyrics => {
+                    document.getElementById('lyrics').textContent = lyrics;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ocurrió un error al obtener las letras de la canción.');
+                });
+        }
+        </script>
     </div>
     
     <div id="YouTubeMusic" class="tabcontent">
-        hola
+        <h1>Buscar Videos Musicales en YouTube</h1>
+
+    <form id="searchForm">
+        <input type="text" id="artistName" placeholder="Nombre del Artista">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div id="results"></div>
+
     </div>
     
     <script src="script.js"></script>
