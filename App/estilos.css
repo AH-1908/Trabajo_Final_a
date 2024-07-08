@@ -1,0 +1,78 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal si hay */
+    overflow-y: visible; /* Muestra la barra de desplazamiento vertical si es necesario */
+    background: linear-gradient(to right, #ff5f6d, #ffc371, #48c6ef);
+    animation: degradadoMovimiento 10s ease infinite;
+}
+
+@keyframes degradadoMovimiento {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilo del contenedor de las pestañas */
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000; /* Fondo negro */
+    padding: 0;
+    margin: 0;
+    position: fixed; /* Hace que el contenedor de las pestañas sea fijo */
+    top: 0; /* Alinea el contenedor en la parte superior de la página */
+    width: 100%; /* Asegura que el contenedor se extienda a lo ancho de la página */
+    z-index: 1000; /* Asegura que el contenedor se muestre por encima de otros elementos */
+}
+
+/* Estilo de los botones de las pestañas */
+.tab button {
+    background-color: inherit; /* Hereda el color de fondo del contenedor */
+    border: none; /* Elimina el borde */
+    outline: none; /* Elimina el contorno al hacer clic */
+    cursor: pointer; /* Cambia el cursor a un puntero */
+    padding: 14px 16px; /* Espaciado interno */
+    transition: background-color 0.3s ease; /* Suaviza la transición de color */
+    color: white; /* Color del texto */
+}
+
+/* Cambia el color de fondo de las pestañas al pasar el mouse */
+.tab button:hover {
+    background-color: #575757; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilo para la pestaña activa */
+.tab button.active {
+    background-color: #4CAF50; /* Color de fondo de la pestaña activa */
+    color: white; /* Color del texto */
+}
+
+/* Estilo del contenido de las pestañas */
+.tabcontent {
+    display: none; /* Oculta el contenido inicialmente */
+    padding: 6px 12px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-top: none; /* Elimina el borde superior */
+}
+
+/* Estilo de las imágenes dentro de los botones de las pestañas */
+.tab button img {
+    height: 24px; /* Altura fija para todas las imágenes */
+    width: 24px; /* Anchura fija para todas las imágenes */
+    vertical-align: middle; /* Alinea verticalmente las imágenes con el texto */
+    margin-right: 8px; /* Espacio a la derecha de la imagen */
+}
