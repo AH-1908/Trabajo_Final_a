@@ -139,3 +139,16 @@ iframe {
     vertical-align: middle;
     margin-right: 8px;
 }
+
+.video-container iframe {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 400px; /* Ajusta la altura según tu preferencia */
+    border-radius: 10px;
+    height: 700px; /* Altura del video */
+    margin-top: 25px; /* Añade margen inferior */
+}
+
+.video-title {
+    font-size: 17px; /* Tamaño de fuente más pequeño para los títulos */
+    margin: 8px 0; /* Espaciado alrededor de los títulos */
+}
