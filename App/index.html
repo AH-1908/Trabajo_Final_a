@@ -13,7 +13,28 @@
     </div>
     
     <div id="Spotify" class="tabcontent">
-        5453
+        <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="Search for an artist, playlist, or song">
+            <div class="button-container">
+                <button onclick="searchArtist()">Search Artist</button>
+                <button onclick="searchPlaylist()">Search Playlist</button>
+                <button onclick="searchTrack()">Search Track</button>
+            </div>
+        </div>
+        <div id="results" class="results-container">
+            <div class="column" id="playlistColumn">
+                <h2>PLAYLISTS</h2>
+                <iframe id="playlistIframe" src="" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="column" id="artistColumn">
+                <h2>ARTIST</h2>
+                <iframe id="artistIframe" src="" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div id="trackResults">
+            <h2>TRACKS</h2>
+            <iframe id="trackIframe" src="" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
     </div>
     
     <div id="iTunes" class="tabcontent">
