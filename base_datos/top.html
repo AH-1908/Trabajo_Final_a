@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 1 de la Música</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script>
+        // Función para cargar y convertir el archivo CSV
+        function cargarDatosCSV() {
+            Papa.parse('basedatosmusicatop.csv', {
+                download: true,
+                header: true,
+                complete: function(results) {
+                    // 'results.data' contiene el arreglo de objetos JSON
+                    // Asignar los datos a una variable global para acceder desde otras funciones
+                    window.datos = results.data;
+                    console.log('Datos cargados:', window.datos);
+                }
+            });
+        }
+        
+        // Llamar a la función para cargar los datos al cargar la página
+        window.onload = function() {
+            cargarDatosCSV();
+        };
+    </script>
+</head>
+<body>
+    <h1>Top 1 de la Música</h1>
+    <form onsubmit="event.preventDefault(); mostrarTop(document.getElementById('numero').value)">
+        <label for="numero">Ingrese un número del 1 al 1000:</label>
+        <input type="number" id="numero" name="numero" min="1" max="1000" required>
+        <button type="submit">Mostrar Top 1</button>
+    </form>
+    <div id="resultado"></div>
+    
+    <script>
+        function mostrarTop(numero) {
+            // Verificar si los datos están cargados correctamente
+            if (!window.datos) {
+                alert('Los datos aún se están cargando. Por favor, espera unos momentos y vuelve a intentarlo.');
+                return;
+            }
+            
+            // Obtener el top 1 según el número ingresado
+            var top1 = window.datos[numero - 1]; // Restar 1 porque los índices en JavaScript comienzan en 0
+            
+            // Mostrar el resultado en algún elemento de tu HTML
+            document.getElementById('resultado').innerHTML = `
+                <h2>Top 1 de la Música</h2>
+                <p>Posición: ${top1.posicion}</p>
+                <p>Artista: ${top1.artista}</p>
+                <p>Canción: ${top1.cancion}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
